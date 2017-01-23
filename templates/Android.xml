@@ -1,0 +1,115 @@
+<templateSet group="Android">
+  <template name="intdef" value="// region $NAME$&#10;&#10;@IntDef({$INTCONST$})&#10;@Retention(RetentionPolicy.SOURCE)&#10;public @interface $NAME$ {&#10;}&#10;&#10;public static final int $INTCONST$ = 0;&#10;&#10;// endregion $NAME$" description="IntDef" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="INTCONST" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="buildversion" value="if (VERSION.SDK_INT &gt;= VERSION_CODES.$VERSION$) {&#10;    $CODE$&#10;}" description="Build version check" toReformat="true" toShortenFQNames="true">
+    <variable name="VERSION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CODE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="true" />
+    </context>
+  </template>
+  <template name="viewcstri" value="// region constructors&#10;&#10;public $CLASS$(Context context) {&#10;    super(context);&#10;    init(context);&#10;}&#10;&#10;public $CLASS$(Context context, AttributeSet attrs) {&#10;    super(context, attrs);&#10;    init(context);&#10;}&#10;&#10;public $CLASS$(Context context, AttributeSet attrs, int defStyleAttr) {&#10;    super(context, attrs, defStyleAttr);&#10;    init(context);&#10;}&#10;&#10;@KeepClassMembers&#10;@SuppressWarnings(&quot;unused&quot;) @TargetApi(android.os.Build.VERSION_CODES.LOLLIPOP)&#10;public $CLASS$(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {&#10;    super(context, attrs, defStyleAttr, defStyleRes);&#10;    init(context);&#10;}&#10;&#10;private void init(Context context) {&#10;    $END$&#10;}&#10;&#10;// endregion constructors" description="view constructors init" toReformat="true" toShortenFQNames="true">
+    <variable name="CLASS" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="strne" value="$string$ != null &amp;&amp; $string$.length() &gt; 0" description="String is not empty" toReformat="true" toShortenFQNames="true">
+    <variable name="string" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="true" />
+    </context>
+  </template>
+  <template name="testmethod" value="@org.junit.Test&#10;public void test$NAME$() throws Exception {&#10;    $END$&#10;}" description="JUnit Test method" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="rxsubscribe" value=".observeOn(AndroidSchedulers.mainThread())" description="Rx Observe On Main Thread" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="false" />
+      <option name="JAVA_DECLARATION" value="false" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_STRING" value="false" />
+      <option name="COMPLETION" value="false" />
+    </context>
+  </template>
+  <template name="sformat" value="%1$s" description="String format" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="XSL_TEXT" value="true" />
+      <option name="XML" value="true" />
+      <option name="XML_TEXT" value="true" />
+    </context>
+  </template>
+  <template name="viewcstr" value="// region constructors&#10;&#10;public $CLASS$(Context context) {&#10;    super(context);&#10;}&#10;&#10;public $CLASS$(Context context, AttributeSet attrs) {&#10;    super(context, attrs);&#10;}&#10;&#10;public $CLASS$(Context context, AttributeSet attrs, int defStyleAttr) {&#10;    super(context, attrs, defStyleAttr);&#10;}&#10;&#10;@Keep @SuppressWarnings(&quot;unused&quot;) @TargetApi(android.os.Build.VERSION_CODES.LOLLIPOP)&#10;public $CLASS$(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {&#10;    super(context, attrs, defStyleAttr, defStyleRes);&#10;}&#10;&#10;// endregion constructors&#10;&#10;$END$" description="view constructors" toReformat="true" toShortenFQNames="true">
+    <variable name="CLASS" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="noInstance" value="private $class$() {&#10;    // no instance&#10;}" description="private empty constructor to prohibit instance creation" toReformat="true" toShortenFQNames="true">
+    <variable name="class" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="stringdef" value="// region StringDef&#10;&#10;@StringDef({$STRCONST$})&#10;@Retention(RetentionPolicy.SOURCE)&#10;public @interface $NAME$ {&#10;}&#10;&#10;public static final String $STRCONST$ = &quot;&quot;;&#10;&#10;// endregion StringDef" description="StringDef" toReformat="true" toShortenFQNames="true">
+    <variable name="STRCONST" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="builder" value="public $class$ $property$($propertyType$ $property$) {&#10;    this.$property$ = $property$;&#10;    return this;&#10;}" description="Builder" toReformat="true" toShortenFQNames="true">
+    <variable name="class" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <variable name="property" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="propertyType" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="fieldlocalcomment" value="/**&#10; * @noinspection FieldCanBeLocal&#10; */" description="Field can be local as comment" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="false" />
+      <option name="JAVA_STATEMENT" value="false" />
+      <option name="JAVA_EXPRESSION" value="false" />
+      <option name="JAVA_DECLARATION" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_STRING" value="false" />
+      <option name="COMPLETION" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="intent" value="@android.support.annotation.NonNull public static android.content.Intent getIntent(@android.support.annotation.NonNull android.content.Context context) {&#10;    return new android.content.Intent(context, $activity$.class);&#10;}" description="Create intent" toReformat="true" toShortenFQNames="true">
+    <variable name="activity" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="argstringcheck" value="if (StringUtils.isEmpty($var$)) {&#10;    throw new IllegalArgumentException(&quot;$var$ is empty&quot;);&#10;}" description="String argument null or empty check" toReformat="true" toShortenFQNames="true">
+    <variable name="var" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="argnullcheck" value="if ($var$ == null) {&#10;    throw new IllegalArgumentException(&quot;$var$ is null&quot;);&#10;}" description="Null arg check" toReformat="true" toShortenFQNames="true">
+    <variable name="var" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="argintcheck" value="if ($var$ &lt;= 0) {&#10;    throw new IllegalArgumentException(&quot;$var$ is not set&quot;);&#10;}" description="Arg int check" toReformat="true" toShortenFQNames="true">
+    <variable name="var" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+</templateSet>

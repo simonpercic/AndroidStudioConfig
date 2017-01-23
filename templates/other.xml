@@ -1,0 +1,9 @@
+<templateSet group="other">
+  <template name="collne" value="if ($collection$ != null &amp;&amp; $collection$.size() &gt; 0) {&#10;   $END$  &#10;}" description="Collection is not empty" toReformat="true" toShortenFQNames="true">
+    <variable name="collection" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="false" />
+    </context>
+  </template>
+</templateSet>

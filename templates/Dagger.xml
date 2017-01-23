@@ -1,0 +1,38 @@
+<templateSet group="Dagger">
+  <template name="provide" value="@dagger.Provides $SCOPE$ $TYPE$ provide$TYPE$($PARAMS$) {&#10;    $END$&#10;}" description="provides" toReformat="false" toShortenFQNames="true" useStaticImport="true">
+    <variable name="SCOPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TYPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARAMS" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="component" value="@$SCOPE$&#10;@Component(&#10;        dependencies = $DEPENDENCY$.class,&#10;        modules = $MODULE$.class&#10;)" description="component" toReformat="false" toShortenFQNames="true">
+    <variable name="SCOPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DEPENDENCY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MODULE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="module" value="private final $VIEW$ view;&#10;&#10;public $MODULE$($VIEW$ view) {&#10;    this.view = view;&#10;}&#10;&#10;@Provides @$SCOPE$ $VIEW$ provideView() {&#10;    return view;&#10;}&#10;&#10;@Provides @$SCOPE$ $PRESENTER$ providePresenter($VIEW$ view) {&#10;    $PROVIDE$&#10;}" description="module" toReformat="true" toShortenFQNames="true">
+    <variable name="VIEW" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MODULE" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <variable name="SCOPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PRESENTER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PROVIDE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="false" />
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="module2" value="private final $MVP$.View view;&#10;&#10;public $MODULE$($MVP$.View view) {&#10;    this.view = view;&#10;}&#10;&#10;@Provides @$SCOPE$ $MVP$.View provideView() {&#10;    return view;&#10;}&#10;&#10;@Provides @$SCOPE$ $MVP$.Presenter providePresenter($MVP$.View view) {&#10;    $PROVIDE$&#10;}" description="module2" toReformat="true" toShortenFQNames="true">
+    <variable name="MVP" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MODULE" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <variable name="SCOPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PROVIDE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>
